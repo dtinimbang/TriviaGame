@@ -9,8 +9,8 @@
 
     <!-- Bootstrap CDN -->
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' crossorigin='anonymous'>
-    <link rel='stylesheet' href = css/style.css>
-    <script src = "javascript/script.js"></script>
+    <link rel='stylesheet' href = assets/css/style.css>
+   
   </head>
 <body>
     <!-- * You'll create a trivia form with multiple choice or true/false 
@@ -34,38 +34,38 @@
     <div id= "results"></div>
  
      <form name = 'quizForm' on submit = "return submitAnswers()">
-       <h3>1. what is my name</h3>
+       <h3 id = "qOne"></h3>
        <input type="radio" name="q1" value="a" id="q1a">a. don<br>
        <input type="radio" name="q1" value="b" id="q1b">b. mike<br>
        <input type="radio" name="q1" value="c" id="q1c">c. john<br>
        <input type="radio" name="q1" value="d" id="q1d">d. jose<br>
 
-       <h3>2. what is my name</h3>
+       <h3 id = "qTwo"></h3>
        <input type="radio" name="q2" value="a" id="q2a">a. don<br>
        <input type="radio" name="q2" value="b" id="q2b">b. mik<br>
        <input type="radio" name="q2" value="c" id="q2c">c. john<br>
        <input type="radio" name="q2" value="d" id="q2d">d. jose<br>
 
-       <h3>3. what is my name</h3>
+       <h3 id = "qThree"></h3>
        <input type="radio" name="q3" value="a" id="q3a">a. don<br>
        <input type="radio" name="q3" value="b" id="q3b">b. mike<br>
        <input type="radio" name="q3" value="c" id="q3c">c. mikey<br>
        <input type="radio" name="q3" value="d" id="q3d">d. bang<br>
 
-       <h3>4. what is my name</h3>
+       <h3 id = "qFour"></h3>
        <input type="radio" name="q4" value="a" id="q4a">a. 1<br>
        <input type="radio" name="q4" value="b" id="q4b">b. 2<br>
        <input type="radio" name="q4" value="c" id="q4c">c. 3t<br>
        <input type="radio" name="q4" value="d" id="q4d">d. 4<br>
 
-       <h3>5. what is my name</h3>
+       <h3 id = "qFive"></h3>
        <input type="radio" name="q5" value="a" id="q5a">a. adsf<br>
        <input type="radio" name="q5" value="b" id="q5b">b. adf<br>
        <input type="radio" name="q5" value="c" id="q5c">c. adf<br>
        <input type="radio" name="q5" value="d" id="q5d">d. adsf<br>
        <br><br>
 
-       <!-- <input type ="submit" value="Submit Answers"> -->
+       <input type ="submit" value="Submit Answers">
        
        </form>
       </section>
@@ -76,7 +76,7 @@
     <body>
 
             <!-- Adds a link to the JavaScript file. Loaded at the bottom so it waits for the HTML content to display first. If you put this at the top it will crash, because the HTML IDs won't exist yet.-->
-            <script src='logic.js'></script>
+            <script src= assets/javascript/app.js></script>
         
           </body>
         
