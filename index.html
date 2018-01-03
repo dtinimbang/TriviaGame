@@ -9,7 +9,9 @@
 
     <!-- Bootstrap CDN -->
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' crossorigin='anonymous'>
-    <link rel='stylesheet' href = assets/css/style.css>
+    <link rel='stylesheet' href = 'assets/css/style.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
    
   </head>
 <body>
@@ -29,16 +31,18 @@
   <h1> Basic Trivia</h1>
   <p> test </p>
   </header>
-
+<body>
   <section>
     <div id= "results"></div>
- 
+    <div class="mainArea col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+
+
      <form name = 'quizForm' on submit = "return submitAnswers()">
        <h3 id = "qOne"></h3>
-       <input type="radio" name="q1" value="a" id="q1a">a. don<br>
-       <input type="radio" name="q1" value="b" id="q1b">b. mike<br>
-       <input type="radio" name="q1" value="c" id="q1c">c. john<br>
-       <input type="radio" name="q1" value="d" id="q1d">d. jose<br>
+       <input type="radio" name="q1" value="a" id="q1a">a.<br>
+       <input type="radio" name="q1" value="b" id="q1b">b.<br>
+       <input type="radio" name="q1" value="c" id="q1c">c.<br>
+       <input type="radio" name="q1" value="d" id="q1d">d.<br>
 
        <h3 id = "qTwo"></h3>
        <input type="radio" name="q2" value="a" id="q2a">a. don<br>
@@ -73,11 +77,11 @@
     
 
 
-    <body>
+    
 
             <!-- Adds a link to the JavaScript file. Loaded at the bottom so it waits for the HTML content to display first. If you put this at the top it will crash, because the HTML IDs won't exist yet.-->
-            <script src= assets/javascript/app.js></script>
-        
+            <script src= "assets/javascript/app.js"></script>
+
           </body>
         
         </html>
