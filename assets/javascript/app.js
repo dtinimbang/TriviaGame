@@ -128,18 +128,13 @@ for(i=1; i<= total; i++){
 
 
     //  Set our number counter to 100.
-    var number = 100;
+    var number = 31;
     
         //  Variable that will hold our interval ID when we execute
         //  the "run" function
         var intervalId;
     
-        //  When the stop button gets clicked, run the stop function.
-        $("#stop").on("click", stop);
-    
-        //  When the resume button gets clicked, execute the run function.
-        $("#resume").on("click", run);
-    
+
         //  The run function sets an interval
         //  that runs the decrement function once a second.
         //  *****BUG FIX******** 
