@@ -1,20 +1,23 @@
+
 $(document).ready(function() {
-// this will be the initial start screen.  
-    // function initialScreen() {
-    //     startScreen = "<p class='text-center main-button-container'><a class='btn btn-primary btn-lg btn-block start-button' href='#' role='button'>Start Quiz</a></p>";
-    //     $(".mainArea").html(startScreen);
-    // }
+
+var time = 20
+var correctAnswers;
+var wrongAnswers;
+var intervalId;
+var counter
     
-    // initialScreen();
-//
+
+
+
 //trying to creat an object with array.
     var triviaGame = [
          {
             q1: "Question1: This is from which show: Now this is a story....",
-            a: "Fresh Prince",
-            b: "punky Brewster",
-            c: "smiley",
-            d: "simpsons",
+            a: "a:  Fresh Prince",
+            b: "b:  punky Brewster",
+            c: "c:  smiley",
+            d: "d:  simpsons",
             correct1: "a"
         },
 
@@ -23,7 +26,8 @@ $(document).ready(function() {
             a: "Office",
             b: "punky Brewster",
             c: "Stranger Things",
-            d: "simpsons"
+            d: "simpsons",
+            correct2: "a"
         },
 
         {
@@ -31,7 +35,8 @@ $(document).ready(function() {
             a: "Bulls",
             b: "Cavs",
             c: "Steamer",
-            d: "Blakhawks"
+            d: "Blakhawks",
+            correct3: "b"
         },
 
         {
@@ -39,7 +44,8 @@ $(document).ready(function() {
             a: "Fresh Prince",
             b: "punky Brewster",
             c: "Michael Jordan",
-            d: "Superman"
+            d: "Superman",
+            correct4: "c"
         },
 
         {
@@ -47,12 +53,13 @@ $(document).ready(function() {
             a: "Prince",
             b: "wizard",
             c: "soccer player",
-            d: "model"
+            d: "model",
+            correct5: "b"
         },
     ]
 
 
-
+// questions and ansewrs
 $("#qOne").append(triviaGame[0].q1);
 //console.log(triviaGame[0].q1);
 //console.log(triviaGame[0].a);
@@ -88,6 +95,92 @@ $("#q5a").append(triviaGame[4].a);
 $("#q5b").append(triviaGame[4].b);
 $("#q5c").append(triviaGame[4].c);
 $("#q5d").append(triviaGame[4].d);
+
+
+
+
+//use this to hide start button on click
+
+
+//test
+
+function submitAnswers(){
+    var total = 5;
+    var score = 0;
+
+    //get user input  ***NOT WORKING
+var q1 = document.forms["quizForm"]["q1"].value;
+var q1 = document.forms["quizForm"]["q2"].value;
+var q1 = document.forms["quizForm"]["q3"].value;
+var q1 = document.forms["quizForm"]["q4"].value;
+var q1 = document.forms["quizForm"]["q5"].value;
+
+for(i=1; i<= total; i++){
+    if(eval("q" +i) == null || ("q" +i == ''))
+    alert('you missed question' +i);
+    return false;
+}
+}
+
+
+
+
+
+
+    //  Set our number counter to 100.
+    var number = 100;
+    
+        //  Variable that will hold our interval ID when we execute
+        //  the "run" function
+        var intervalId;
+    
+        //  When the stop button gets clicked, run the stop function.
+        $("#stop").on("click", stop);
+    
+        //  When the resume button gets clicked, execute the run function.
+        $("#resume").on("click", run);
+    
+        //  The run function sets an interval
+        //  that runs the decrement function once a second.
+        //  *****BUG FIX******** 
+        //  Clearing the intervalId prior to setting our new intervalId will not allow multiple instances.
+        function run() {
+          clearInterval(intervalId);
+          intervalId = setInterval(decrement, 1000);
+        }
+    
+        //  The decrement function.
+        function decrement() {
+    
+          //  Decrease number by one.
+          number--;
+    
+          //  Show the number in the #show-number tag.
+          $("#show-number").html("<h2>" + number + "</h2>");
+    
+    
+          //  Once number hits zero...
+          if (number === 0) {
+    
+            //  ...run the stop function.
+            stop();
+    
+            //  Alert the user that time is up.
+            alert("Time Up!");
+          }
+        }
+    
+        //  The stop function
+        function stop() {
+    
+          //  Clears our intervalId
+          //  We just pass the name of the interval
+          //  to the clearInterval function.
+          clearInterval(intervalId);
+        }
+    
+        //  Execute the run function.
+        run();
 
 
 });
