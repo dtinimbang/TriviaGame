@@ -1,178 +1,262 @@
 
+
 $(document).ready(function() {
 
 
-var correctAnswers;
-var wrongAnswers;
-var intervalId;
-var counter
+
     
 
 
 
 //====================================
-// question answers objects in arrays
+// attempt to put questions answerlist in array form.  May tackle this if
+// I can complete project other way
 //====================================
-var triviaQuestions = [{
-	question: "what is ?",
-	answerList: ["Michael J. Sullivan", "James P. Sullivan", "Sully Sullivan", "Jeff"],
-	answer: 1
-},{
-	question: "What kind of bug is Frances from 'A Bug's Life'?",
-	answerList: ["Ladybug", "Ant", "Grasshopper", "Caterpillar"],
-	answer: 0
-},{
-	question: "What's the name of Woody's boy?",
-	answerList: ["Andy", "Danny", "Max", "Sid"],
-	answer: 0
-},{
-	question: "Merida's mother changes into what after eating the enchanted cake?",
-	answerList: ["Dragon", "Witch", "Bear", "Will-o'-the-Wisp"],
-	answer: 2
-},{
-	question: "What precious cargo is Wall-E protecting?",
-	answerList: ["trash", "photos", "gold", "a plant"],
-	answer: 3
-},{
-	question: "Which of the following is not an emotion showed in 'Inside Out'?",
-	answerList: ["Confusion", "Sadness", "Fear", "Disgust"],
-	answer: 0
-},{
-	question: "What is the name of Mr. Incredible's nemesis?",
-	answerList: ["Frozone", "Syndrome", "Mirage", "Elastigirl"],
-	answer: 1
-},{
-	question: "What is Nemo's mom's name?",
-	answerList: ["Pearl", "Deb", "Coral", "Dory"],
-	answer: 2
-},{
-	question: "What is the big race called in 'Cars'?",
-	answerList: ["Daytona 500", "Piston Cup", "Radiator Springs", "Route 66"],
-	answer: 1
-},{
-	question: "In 'Up', what is Russell trying to earn a badge for?",
-	answerList: ["Wild Wilderness Scouts", "Explorers of America", "Wilderness Explorer", "Boy Scouts"],
-	answer: 2
-},{
-	question: "From 'The Good Dinosaur,' what does Arlo call his pet?",
-	answerList: ["Spunky", "Spot", "Sparky", "Fido"],
-	answer: 1
-},{
-	question: "What fraternity does Mike Wazowski end up joining in college?",
-	answerList: ["Zeta Hiss Alpha", "Python Nu Kappa", "Roar Omega Roar", "Oozma Kappa"],
-	answer: 3
-},{
-	question: "Which of the following ISN'T a phrase when you pull on Woody's drawstring?",
-	answerList: ["Reach for the sky!", "Ride like the wind, Bullseye!", "There's a snake in my boot!", "Somebody's poisoned the water hole!"],
-	answer: 1
-},{
-	question: "Who's your friend who like's to play...?",
-	answerList: ["Bong Bong, Bong Bong", "Ding Dong, Ding Dong", "Bing Bong, Bing Bong", "Sing Song, Sing Song"],
-	answer: 2
-},{
-	question: "Do you think it's odd that 'Ratatouille' takes place is Paris, but the two main characters don't have accents?",
-	answerList: ["Yes! So weird!", "They don't have accents?", "Nope!", "What's a Ratatouille?"],
-	answer: 0
-}];
+// var triviaQuestions = [{
+// 	question: "This is a test 00?",
+// 	answerList: ["1", "2", "3", "4"],
+// 	answer: 0
+// },{
+// 	question: "This is a test 0?",
+// 	answerList: ["1", "2", "3", "4"],
+// 	answer: 0
+// },{
+// 	question: "This is a test 1?",
+// 	answerList: ["1", "2", "3", "4"],
+// 	answer: 0
+// },{
+// 	question: "This is a test 2?",
+// 	answerList: ["1", "2", "3", "4"],
+// 	answer: 0
+// },{
+// 	question: "This is a test 3?",
+// 	answerList: ["1", "2", "3", "4"],
+// 	answer: 0
+// },{
+// 	question: "This is a test 4?",
+// 	answerList: ["1", "2", "3", "4"],
+// 	answer: 0
+// },{
+// 	question: "This is a test 5?",
+// 	answerList: ["1", "2", "3", "4"],
+// 	answer: 0
+// }];
+
+// for(i=0; i<triviaQuestions.length; i++){
+// $(#question).append(triviaQuestions.question[i])
+
+// };
+
+
+
+
+
+// $('#startBtn').on('click', function(){
+// 	$(this).hide();
+// 	newGame();
+// });
+
+// $('#startOverBtn').on('click', function(){
+// 	$(this).hide();
+// 	newGame();
+// });
+
+
+
+// }
+
+
+
+	// Intialize the game with hidden Divs
+	$("#mid_game_container").hide();
+	$("#end_container").hide();
+
+	
+
+	// Set Scroll position so it looks good
+	//window.scrollTo(0, 500);
+
+
+
+
+	$("#start_button").on("click", function(){
+
+		// Hide the start Div from the user
+		$("#start_container").hide();
+
+
+		// Show the Game Div
+		$("#mid_game_container").show();
+
+		run();
+		return;
+
+	});
+
 
 
 
 
 // going to try and redo this with answers in a array.
-    // var triviaGame = [
-    //      {
-    //         q1: "Question1: This is from which show: Now this is a story....",
-    //         a: "a:  Fresh Prince",
-    //         b: "b:  punky Brewster",
-    //         c: "c:  smiley",
-    //         d: "d:  simpsons",
-    //         correct1: "a"
-    //     },
+    var triviaGame = [
+         {
+            q1: "Question1: This is from which show: Now this is a story....",
+            a: "a:  Fresh Prince",
+            b: "b:  punky Brewster",
+            c: "c:  smiley",
+            d: "d:  simpsons",
+            correct: "a"
+        },
 
-    //     {
-    //         q2: "Question2: Dwight Shrute is best known for his role in?",
-    //         a: "Office",
-    //         b: "punky Brewster",
-    //         c: "Stranger Things",
-    //         d: "simpsons",
-    //         correct2: "a"
-    //     },
+        {
+            q2: "Question2: Dwight Shrute is best known for his role in?",
+            a: "Office",
+            b: "punky Brewster",
+            c: "Stranger Things",
+            d: "simpsons",
+            correct: "a"
+        },
 
-    //     {
-    //         q3: "Question3: Lebron James Currently plays for which team",
-    //         a: "Bulls",
-    //         b: "Cavs",
-    //         c: "Steamer",
-    //         d: "Blakhawks",
-    //         correct3: "b"
-    //     },
+        {
+            q3: "Question3: Lebron James Currently plays for which team",
+            a: "Bulls",
+            b: "Cavs",
+            c: "Steamer",
+            d: "Blakhawks",
+            correct: "b"
+        },
 
-    //     {
-    //         q4: "Question4: Which Chicago Bull wore the #23",
-    //         a: "Fresh Prince",
-    //         b: "punky Brewster",
-    //         c: "Michael Jordan",
-    //         d: "Superman",
-    //         correct4: "c"
-    //     },
+        {
+            q4: "Question4: Which Chicago Bull wore the #23",
+            a: "Fresh Prince",
+            b: "punky Brewster",
+            c: "Michael Jordan",
+            d: "Superman",
+            correct: "c"
+        },
 
-    //     {
-    //         q5: "Question5: Harry Potter is a ",
-    //         a: "Prince",
-    //         b: "wizard",
-    //         c: "soccer player",
-    //         d: "model",
-    //         correct5: "b"
-    //     },
-    // ]
+        {
+            q5: "Question5: Harry Potter is a ",
+            a: "Prince",
+            b: "wizard",
+            c: "soccer player",
+            d: "model",
+            correct: "b"
+        },
+    ]
 
 
-//==============================
+// ==============================
 // question answers and arrays
-//==============================
+// ==============================
 
-// $("#qOne").append(triviaGame[0].q1);
-// //console.log(triviaGame[0].q1);
-// //console.log(triviaGame[0].a);
-// $("#q1a").append(triviaGame[0].a);
-// $("#q1b").append(triviaGame[0].b);
-// $("#q1c").append(triviaGame[0].c);
-// $("#q1d").append(triviaGame[0].d);
-// //-----------------------------------------------
-// $("#qTwo").append(triviaGame[1].q2);
-// //console.log(triviaGame[1].q2);
-// $("#q2a").append(triviaGame[1].a);
-// $("#q2b").append(triviaGame[1].b);
-// $("#q2c").append(triviaGame[1].c);
-// $("#q2d").append(triviaGame[1].d);
-// //-----------------------------------------------
-// $("#qThree").append(triviaGame[2].q3);
-// //console.log(triviaGame[2].q3);
-// $("#q3a").append(triviaGame[2].a);
-// $("#q3b").append(triviaGame[2].b);
-// $("#q3c").append(triviaGame[2].c);
-// $("#q3d").append(triviaGame[2].d);
-// //------------------------------------------------
-// $("#qFour").append(triviaGame[3].q4);
-// //console.log(triviaGame[3].q4);
-// $("#q4a").append(triviaGame[3].a);
-// $("#q4b").append(triviaGame[3].b);
-// $("#q4c").append(triviaGame[3].c);
-// $("#q4d").append(triviaGame[3].d);
-// //------------------------------------------------
-// $("#qFive").append(triviaGame[4].q5);
-// //console.log(triviaGame[4].q5);
-// $("#q5a").append(triviaGame[4].a);
-// $("#q5b").append(triviaGame[4].b);
-// $("#q5c").append(triviaGame[4].c);
-// $("#q5d").append(triviaGame[4].d);
+$("#qOne").append(triviaGame[0].q1);
+//console.log(triviaGame[0].q1);
+//console.log(triviaGame[0].a);
+$("#q1a").append(triviaGame[0].a);
+$("#q1b").append(triviaGame[0].b);
+$("#q1c").append(triviaGame[0].c);
+$("#q1d").append(triviaGame[0].d);
+//-----------------------------------------------
+$("#qTwo").append(triviaGame[1].q2);
+//console.log(triviaGame[1].q2);
+$("#q2a").append(triviaGame[1].a);
+$("#q2b").append(triviaGame[1].b);
+$("#q2c").append(triviaGame[1].c);
+$("#q2d").append(triviaGame[1].d);
+//-----------------------------------------------
+$("#qThree").append(triviaGame[2].q3);
+//console.log(triviaGame[2].q3);
+$("#q3a").append(triviaGame[2].a);
+$("#q3b").append(triviaGame[2].b);
+$("#q3c").append(triviaGame[2].c);
+$("#q3d").append(triviaGame[2].d);
+//------------------------------------------------
+$("#qFour").append(triviaGame[3].q4);
+//console.log(triviaGame[3].q4);
+$("#q4a").append(triviaGame[3].a);
+$("#q4b").append(triviaGame[3].b);
+$("#q4c").append(triviaGame[3].c);
+$("#q4d").append(triviaGame[3].d);
+//------------------------------------------------
+$("#qFive").append(triviaGame[4].q5);
+//console.log(triviaGame[4].q5);
+$("#q5a").append(triviaGame[4].a);
+$("#q5b").append(triviaGame[4].b);
+$("#q5c").append(triviaGame[4].c);
+$("#q5d").append(triviaGame[4].d);
 
 
-
+var correctCount=0;
+var wrongCount=0;
+var unansweredCount=0;
 
 // //==============================
 // //       LOGIC
 // //==============================
+var q1 = triviaGame[0].q1
+var q1a = triviaGame[0].a
+var q1b = triviaGame[0].b
+var q1c = triviaGame[0].c
+var q1d = triviaGame[0].d
+var q1Correct = triviaGame[0].correct
+
+var q2 = triviaGame[1].q2
+var q2a = triviaGame[1].a
+var q2b= triviaGame[1].b
+var q2c = triviaGame[1].c
+var q2d= triviaGame[1].d
+var q2Correct = triviaGame[1].correct
+//-----------------------------------------------
+var q3 = triviaGame[2].q3
+var q3a = triviaGame[2].a
+var q3b = triviaGame[2].b
+var q3c = triviaGame[2].c
+var q3d = triviaGame[2].d
+var q3Correct = triviaGame[2].correct
+//------------------------------------------------
+var q4 = triviaGame[0].q1
+var q4a = triviaGame[0].a
+var q4b = triviaGame[0].b
+var q4c = triviaGame[0].c
+var q4d = triviaGame[0].d
+var q4Correct = triviaGame[0].correct
+//------------------------------------------------
+var q5 = triviaGame[0].q1
+var q5a = triviaGame[0].a
+var q5b = triviaGame[0].b
+var q5c = triviaGame[0].c
+var q5d = triviaGame[0].d
+var q5Correct = triviaGame[0].correct
+
+
+
+if(q1 === undefined){
+    unansweredCount++;
+}
+else if(q1 === q1a){
+    correctCount++;
+    console.log(hello)
+}
+else{
+    wrongCount++;
+}
+
+
+
+// User finishes before time is up and clicks done
+$("#done_button").on("click", function(){
+
+    // Stop the countdown and run the timeUp function
+    //clearInterval(startCountdown);
+    count = 0; // <---- Needed a hack since I couldn't get the clearInterval function to work... It's been a long week :/
+    return;
+
+    });
+
+
+
+   
 
 
 // //==============================
@@ -206,6 +290,7 @@ var triviaQuestions = [{
 
     //  Set our number counter to 31.
     var number = 31;
+
     
         //  Variable that will hold our interval ID when we execute
         //  the "run" function
@@ -251,9 +336,21 @@ var triviaQuestions = [{
           clearInterval(intervalId);
         }
     
-        //  Execute the run function.
-        run();
+        
+        
+
+        // After answers are validated, display the score results
+		$('#correct_answers').html(correctCount);
+		$('#wrong_answers').html(wrongCount);
+		$('#unanswered').html(unansweredCount);
+
+
+		// Show the completed Score Div
+        $("#end_container").show();
+        
+
+
+
 
 
 });
-
