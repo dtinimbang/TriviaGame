@@ -30,7 +30,7 @@
     * Don't forget to include a countdown timer. -->
       <div id = "container">
 <header>
-  <center><h1> Crossfit - Weightlifting Trivia</h1></center>
+  <center><h1> Weightlifting Trivia</h1></center>
   <div id="startBtn"></div>
   </header>
 <body>
@@ -58,7 +58,13 @@
       <!-- During Gameplay Container -->
       <div id = mid_game_container>
 		
-
+        
+        <input type="radio" name="rbnNumber" value="1" /> Number 1<br/>
+        <input type="radio" name="rbnNumber" value="2" /> Number 2 <br/>
+        <input type="radio" name="rbnNumber" value="3" /> Number 3
+        <br/><br/>
+        <input type="button" id="btnGetValue" Value="Get Value" />
+        <p></p>   
 
      <form name = 'quizForm' on submit = "return submitAnswers()"> 
        <h3 id = "qOne"></h3>
@@ -93,13 +99,13 @@
        <br><br>
 
        <h1 id ="" value="Submit Answers"> 
-
+       </div>
        <!-- End of the game -->
-		<div id = end_container>
+	  	<div id = end_container>
         <!-- Static Game Logo -->
-        <h1 class = "btnbtn">CROSSFIT!</h1>
+        <h1 class = "btnbtn">Click button below when finished</h1>
   
-        <button id = "done_button">All Done!</h1>
+        <button id = "done_button" class="btn-primary">All Done!</button>
         <br>
   
         <h1>Correct Answers: <span id = "correct_answers">0</span></h1>
@@ -108,8 +114,9 @@
       </div>
        
        </form>
-      </section>
       </div>
+      </section>
+      
     
 
 

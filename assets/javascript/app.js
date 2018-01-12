@@ -51,30 +51,18 @@ $(document).ready(function() {
 
 
 
-// $('#startBtn').on('click', function(){
-// 	$(this).hide();
-// 	newGame();
-// });
-
-// $('#startOverBtn').on('click', function(){
-// 	$(this).hide();
-// 	newGame();
-// });
-
-
-
-// }
-
 
 
 	// Intialize the game with hidden Divs
 	$("#mid_game_container").hide();
 	$("#end_container").hide();
 
+    var correctCount=0;
+    var wrongCount=0;
+    var unansweredCount=0;
 	
 
-	// Set Scroll position so it looks good
-	//window.scrollTo(0, 500);
+	;
 
 
 
@@ -100,47 +88,47 @@ $(document).ready(function() {
 // going to try and redo this with answers in a array.
     var triviaGame = [
          {
-            q1: "Question1: This is from which show: Now this is a story....",
-            a: "a:  Fresh Prince",
-            b: "b:  punky Brewster",
-            c: "c:  smiley",
-            d: "d:  simpsons",
+            q1: "Bringing the barbell from ground to shoulder, than shoulder to overhead is called?",
+            a: "a:  Clean and Jerk",
+            b: "b:  Snatch",
+            c: "c:  The Dougie",
+            d: "d:  The Tootsie Roll",
             correct: "a"
         },
 
         {
-            q2: "Question2: Dwight Shrute is best known for his role in?",
-            a: "Office",
-            b: "punky Brewster",
-            c: "Stranger Things",
-            d: "simpsons",
+            q2: "To convert from Kilos to Pounds you must?",
+            a: "Multiply 2.2",
+            b: "Divide 2.2",
+            c: "Add 2.2",
+            d: "Subtract 2.2",
             correct: "a"
         },
 
         {
-            q3: "Question3: Lebron James Currently plays for which team",
-            a: "Bulls",
-            b: "Cavs",
-            c: "Steamer",
-            d: "Blakhawks",
+            q3: "What do you call 'hooking' your thumbs around the barbell and under your fingers",
+            a: "Captain Hook",
+            b: "Hook Grip",
+            c: "Hookah",
+            d: "Finger Hook",
             correct: "b"
         },
 
         {
-            q4: "Question4: Which Chicago Bull wore the #23",
-            a: "Fresh Prince",
-            b: "punky Brewster",
-            c: "Michael Jordan",
-            d: "Superman",
+            q4: "Which shoe does not produce an Olympic lifting shoe",
+            a: "Nike",
+            b: "Adidas",
+            c: "Sketchers",
+            d: "No Bull",
             correct: "c"
         },
 
         {
-            q5: "Question5: Harry Potter is a ",
-            a: "Prince",
-            b: "wizard",
-            c: "soccer player",
-            d: "model",
+            q5: "A green plate is equal to how many pounds?",
+            a: "10",
+            b: "25",
+            c: "45",
+            d: "55",
             correct: "b"
         },
     ]
@@ -187,14 +175,19 @@ $("#q5c").append(triviaGame[4].c);
 $("#q5d").append(triviaGame[4].d);
 
 
-var correctCount=0;
-var wrongCount=0;
-var unansweredCount=0;
+
+    $('#done_button').click(function() {
+        var selValue = $('input[name=rbnNumber]:checked').val();
+        $('p').html('<br/>Selected Radio Button Value is : <b>' + selValue + '</b>');
+    });
+
 
 // //==============================
 // //       LOGIC
 // //==============================
 var q1 = triviaGame[0].q1
+var Q1 = $('input:radio[name="q1"]:checked').val();
+console.log(Q1);
 var q1a = triviaGame[0].a
 var q1b = triviaGame[0].b
 var q1c = triviaGame[0].c
@@ -230,27 +223,27 @@ var q5d = triviaGame[0].d
 var q5Correct = triviaGame[0].correct
 
 
-
-if(q1 === undefined){
-    unansweredCount++;
-}
-else if(q1 === q1a){
-    correctCount++;
-    console.log(hello)
-}
-else{
-    wrongCount++;
-}
+console.log(q1);
+console.log(q1a);
+// if(q1 === q1a){
+//     correctCount++;
+//     console.log(hello)
+// }
+// else{
+//     wrongCount++;
+// }
 
 
 
 // User finishes before time is up and clicks done
 $("#done_button").on("click", function(){
 
-    // Stop the countdown and run the timeUp function
-    //clearInterval(startCountdown);
-    count = 0; // <---- Needed a hack since I couldn't get the clearInterval function to work... It's been a long week :/
+    // trying to get done function to work
+    $("#mid_game_container").hide();
+    $("#start_container").hide();
+    console.log(correctCount);
     return;
+    
 
     });
 
@@ -342,7 +335,7 @@ $("#done_button").on("click", function(){
         // After answers are validated, display the score results
 		$('#correct_answers').html(correctCount);
 		$('#wrong_answers').html(wrongCount);
-		$('#unanswered').html(unansweredCount);
+		
 
 
 		// Show the completed Score Div
