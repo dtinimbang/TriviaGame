@@ -85,29 +85,50 @@
 
     var answers = ['a. clean and jerk', 'a.  Multiply 2.2', 'd. hook grip'];
 var score = 0;
+var lose = 0;
+
 
 $(document).ready(function(){
     
     //these variables are within the scope of the document ready
     // i'm just making examples for 2 questions, you will have 5.
-    var q1, q2;
+    var q1, q2, q3;
     $('#btnGetValue').click(function() {
       //instruction sets below display for your debugging of selected answer  
       var q1 = $('input[name=q1]:checked').val(); 
+      console.log(q1);
       var q2 = $('input[name=q2]:checked').val(); 
+      var q3 = $('input[name=q3]:checked').val(); 
       $('#q1').append('<br/>Selected Radio Button Value for q1 is : <b>' + q1 + '</b>');
       $('#q2').append('<br/>Selected Radio Button Value for q2 is : <b>' + q2 + '</b>');
+      $('#q3').append('<br/>Selected Radio Button Value for q2 is : <b>' + q3 + '</b>');
       
       //implementing logic for correct answers and score keeping
       if(answers[0] === q1) {
+          alert("working!");
         score++;
+        console.log(score);
       }
       else {
         score--; 
       }
     }); 
-});
+    if(answers[1] === q2) {
+        score++;
+      }
+      else {
+        score--; 
+      }
+      if(answers[2] === q3) {
+        score++;
+      }
+      else {
+        score--; 
+      }
 
+    }); 
+
+    $('#correct_answers').html(score);
 
 
 
@@ -308,7 +329,7 @@ $("#done_button").on("click", function(){
 
 
     //  Set our number counter to 31.
-    var number = 31;
+    var number = 60;
 
     
         //  Variable that will hold our interval ID when we execute
@@ -359,8 +380,8 @@ $("#done_button").on("click", function(){
         
 
         // After answers are validated, display the score results
-		$('#correct_answers').html(correctCount);
-		$('#wrong_answers').html(wrongCount);
+		$('#correct_answers').text(score);
+		$('#wrong_answers').html(lose);
 		
 
 
