@@ -1,6 +1,6 @@
 
 
-$(document).ready(function() {
+//$(document).ready(function() {
 
 
 
@@ -83,148 +83,174 @@ $(document).ready(function() {
 
 
 
+    var answers = ['a. clean and jerk', 'a.  Multiply 2.2', 'd. hook grip'];
+var score = 0;
+
+$(document).ready(function(){
+    
+    //these variables are within the scope of the document ready
+    // i'm just making examples for 2 questions, you will have 5.
+    var q1, q2;
+    $('#btnGetValue').click(function() {
+      //instruction sets below display for your debugging of selected answer  
+      var q1 = $('input[name=q1]:checked').val(); 
+      var q2 = $('input[name=q2]:checked').val(); 
+      $('#q1').append('<br/>Selected Radio Button Value for q1 is : <b>' + q1 + '</b>');
+      $('#q2').append('<br/>Selected Radio Button Value for q2 is : <b>' + q2 + '</b>');
+      
+      //implementing logic for correct answers and score keeping
+      if(answers[0] === q1) {
+        score++;
+      }
+      else {
+        score--; 
+      }
+    }); 
+});
+
+
 
 
 // going to try and redo this with answers in a array.
-    var triviaGame = [
-         {
-            q1: "Bringing the barbell from ground to shoulder, than shoulder to overhead is called?",
-            a: "a:  Clean and Jerk",
-            b: "b:  Snatch",
-            c: "c:  The Dougie",
-            d: "d:  The Tootsie Roll",
-            correct: "a"
-        },
+    // var triviaGame = [
+    //      {
+    //         q1: "Bringing the barbell from ground to shoulder, than shoulder to overhead is called?",
+    //         a: "a:  Clean and Jerk",
+    //         b: "b:  Snatch",
+    //         c: "c:  The Dougie",
+    //         d: "d:  The Tootsie Roll",
+    //         correct: "a"
+    //     },
 
-        {
-            q2: "To convert from Kilos to Pounds you must?",
-            a: "Multiply 2.2",
-            b: "Divide 2.2",
-            c: "Add 2.2",
-            d: "Subtract 2.2",
-            correct: "a"
-        },
+    //     {
+    //         q2: "To convert from Kilos to Pounds you must?",
+    //         a: "Multiply 2.2",
+    //         b: "Divide 2.2",
+    //         c: "Add 2.2",
+    //         d: "Subtract 2.2",
+    //         correct: "a"
+    //     },
 
-        {
-            q3: "What do you call 'hooking' your thumbs around the barbell and under your fingers",
-            a: "Captain Hook",
-            b: "Hook Grip",
-            c: "Hookah",
-            d: "Finger Hook",
-            correct: "b"
-        },
+    //     {
+    //         q3: "What do you call 'hooking' your thumbs around the barbell and under your fingers",
+    //         a: "Captain Hook",
+    //         b: "Hook Grip",
+    //         c: "Hookah",
+    //         d: "Finger Hook",
+    //         correct: "b"
+    //     },
 
-        {
-            q4: "Which shoe does not produce an Olympic lifting shoe",
-            a: "Nike",
-            b: "Adidas",
-            c: "Sketchers",
-            d: "No Bull",
-            correct: "c"
-        },
+    //     {
+    //         q4: "Which shoe does not produce an Olympic lifting shoe",
+    //         a: "Nike",
+    //         b: "Adidas",
+    //         c: "Sketchers",
+    //         d: "No Bull",
+    //         correct: "c"
+    //     },
 
-        {
-            q5: "A green plate is equal to how many pounds?",
-            a: "10",
-            b: "25",
-            c: "45",
-            d: "55",
-            correct: "b"
-        },
-    ]
+    //     {
+    //         q5: "A green plate is equal to how many pounds?",
+    //         a: "10",
+    //         b: "25",
+    //         c: "45",
+    //         d: "55",
+    //         correct: "b"
+    //     },
+    // ]
 
 
 // ==============================
 // question answers and arrays
 // ==============================
 
-$("#qOne").append(triviaGame[0].q1);
-//console.log(triviaGame[0].q1);
-//console.log(triviaGame[0].a);
-$("#q1a").append(triviaGame[0].a);
-$("#q1b").append(triviaGame[0].b);
-$("#q1c").append(triviaGame[0].c);
-$("#q1d").append(triviaGame[0].d);
-//-----------------------------------------------
-$("#qTwo").append(triviaGame[1].q2);
-//console.log(triviaGame[1].q2);
-$("#q2a").append(triviaGame[1].a);
-$("#q2b").append(triviaGame[1].b);
-$("#q2c").append(triviaGame[1].c);
-$("#q2d").append(triviaGame[1].d);
-//-----------------------------------------------
-$("#qThree").append(triviaGame[2].q3);
-//console.log(triviaGame[2].q3);
-$("#q3a").append(triviaGame[2].a);
-$("#q3b").append(triviaGame[2].b);
-$("#q3c").append(triviaGame[2].c);
-$("#q3d").append(triviaGame[2].d);
-//------------------------------------------------
-$("#qFour").append(triviaGame[3].q4);
-//console.log(triviaGame[3].q4);
-$("#q4a").append(triviaGame[3].a);
-$("#q4b").append(triviaGame[3].b);
-$("#q4c").append(triviaGame[3].c);
-$("#q4d").append(triviaGame[3].d);
-//------------------------------------------------
-$("#qFive").append(triviaGame[4].q5);
-//console.log(triviaGame[4].q5);
-$("#q5a").append(triviaGame[4].a);
-$("#q5b").append(triviaGame[4].b);
-$("#q5c").append(triviaGame[4].c);
-$("#q5d").append(triviaGame[4].d);
+// $("#qOne").append(triviaGame[0].q1);
+// //console.log(triviaGame[0].q1);
+// //console.log(triviaGame[0].a);
+// $("#q1a").append(triviaGame[0].a);
+// $("#q1b").append(triviaGame[0].b);
+// $("#q1c").append(triviaGame[0].c);
+// $("#q1d").append(triviaGame[0].d);
+// //-----------------------------------------------
+// $("#qTwo").append(triviaGame[1].q2);
+// //console.log(triviaGame[1].q2);
+// $("#q2a").append(triviaGame[1].a);
+// $("#q2b").append(triviaGame[1].b);
+// $("#q2c").append(triviaGame[1].c);
+// $("#q2d").append(triviaGame[1].d);
+// //-----------------------------------------------
+// $("#qThree").append(triviaGame[2].q3);
+// //console.log(triviaGame[2].q3);
+// $("#q3a").append(triviaGame[2].a);
+// $("#q3b").append(triviaGame[2].b);
+// $("#q3c").append(triviaGame[2].c);
+// $("#q3d").append(triviaGame[2].d);
+// //------------------------------------------------
+// $("#qFour").append(triviaGame[3].q4);
+// //console.log(triviaGame[3].q4);
+// $("#q4a").append(triviaGame[3].a);
+// $("#q4b").append(triviaGame[3].b);
+// $("#q4c").append(triviaGame[3].c);
+// $("#q4d").append(triviaGame[3].d);
+// //------------------------------------------------
+// $("#qFive").append(triviaGame[4].q5);
+// //console.log(triviaGame[4].q5);
+// $("#q5a").append(triviaGame[4].a);
+// $("#q5b").append(triviaGame[4].b);
+// $("#q5c").append(triviaGame[4].c);
+// $("#q5d").append(triviaGame[4].d);
 
 
 
-    $('#done_button').click(function() {
-        var selValue = $('input[name=rbnNumber]:checked').val();
-        $('p').html('<br/>Selected Radio Button Value is : <b>' + selValue + '</b>');
-    });
+//     $('#done_button').click(function() {
+//         var selValue = $('input[name=rbnNumber]:checked').val();
+//         $('p').html('<br/>Selected Radio Button Value is : <b>' + selValue + '</b>');
+//     });
 
 
 // //==============================
 // //       LOGIC
 // //==============================
-var q1 = triviaGame[0].q1
-var Q1 = $('input:radio[name="q1"]:checked').val();
-console.log(Q1);
-var q1a = triviaGame[0].a
-var q1b = triviaGame[0].b
-var q1c = triviaGame[0].c
-var q1d = triviaGame[0].d
-var q1Correct = triviaGame[0].correct
+// var q1 = triviaGame[0].q1
+// var Q1 = $('input:radio[name="q1"]:checked').val();
+// console.log(Q1);
+// var q1a = triviaGame[0].a
+// var q1b = triviaGame[0].b
+// var q1c = triviaGame[0].c
+// var q1d = triviaGame[0].d
+// var q1Correct = triviaGame[0].correct
 
-var q2 = triviaGame[1].q2
-var q2a = triviaGame[1].a
-var q2b= triviaGame[1].b
-var q2c = triviaGame[1].c
-var q2d= triviaGame[1].d
-var q2Correct = triviaGame[1].correct
-//-----------------------------------------------
-var q3 = triviaGame[2].q3
-var q3a = triviaGame[2].a
-var q3b = triviaGame[2].b
-var q3c = triviaGame[2].c
-var q3d = triviaGame[2].d
-var q3Correct = triviaGame[2].correct
-//------------------------------------------------
-var q4 = triviaGame[0].q1
-var q4a = triviaGame[0].a
-var q4b = triviaGame[0].b
-var q4c = triviaGame[0].c
-var q4d = triviaGame[0].d
-var q4Correct = triviaGame[0].correct
-//------------------------------------------------
-var q5 = triviaGame[0].q1
-var q5a = triviaGame[0].a
-var q5b = triviaGame[0].b
-var q5c = triviaGame[0].c
-var q5d = triviaGame[0].d
-var q5Correct = triviaGame[0].correct
+// var q2 = triviaGame[1].q2
+// var q2a = triviaGame[1].a
+// var q2b= triviaGame[1].b
+// var q2c = triviaGame[1].c
+// var q2d= triviaGame[1].d
+// var q2Correct = triviaGame[1].correct
+// //-----------------------------------------------
+// var q3 = triviaGame[2].q3
+// var q3a = triviaGame[2].a
+// var q3b = triviaGame[2].b
+// var q3c = triviaGame[2].c
+// var q3d = triviaGame[2].d
+// var q3Correct = triviaGame[2].correct
+// //------------------------------------------------
+// var q4 = triviaGame[0].q1
+// var q4a = triviaGame[0].a
+// var q4b = triviaGame[0].b
+// var q4c = triviaGame[0].c
+// var q4d = triviaGame[0].d
+// var q4Correct = triviaGame[0].correct
+// //------------------------------------------------
+// var q5 = triviaGame[0].q1
+// var q5a = triviaGame[0].a
+// var q5b = triviaGame[0].b
+// var q5c = triviaGame[0].c
+// var q5d = triviaGame[0].d
+// var q5Correct = triviaGame[0].correct
 
 
-console.log(q1);
-console.log(q1a);
+// console.log(q1);
+// console.log(q1a);
 // if(q1 === q1a){
 //     correctCount++;
 //     console.log(hello)
@@ -346,4 +372,4 @@ $("#done_button").on("click", function(){
 
 
 
-});
+
