@@ -47,16 +47,16 @@
       	<div class = 'container'>
 
           		<!-- Start of the game -->
-		<div id = start_container>
+		<div id = 'start_container'>
         <!-- Static Game Logo -->
         <h1 class = "btnbtn">Click Start to begin</h1>
   
-        <button id = start_button class='btn btn-primary btn-lg btn-block'>Start</button>
+        <button id = 'start_button' class='btn btn-primary btn-lg btn-block'>Start</button>
       </div>
   
   
       <!-- During Gameplay Container -->
-      <div id = mid_game_container>
+      <div id = 'mid_game_container'>
 		
 <!--         
         <input type="radio" name="rbnNumber" value="1" /> Number 1<br/>
@@ -67,30 +67,44 @@
         <p></p>  -->
         
         <h1>When the barbell goes from the floor to shoulder, than shoulder to overead?</h1>
-        <input type="radio" name="q1" value="a. clean and jerk" /> a. clean and jerk<br/>
-        <input type="radio" name="q1" value="b. front squat" /> b. front squat <br/>
-        <input type="radio" name="q1" value="c. back sqaut" /> c. back sqaut <br/>
-        <input type="radio" name="q1" value="d. dead lift" /> d. dead lift <br/>
+        <input type="radio" name="q1" value="a. clean and jerk" />a. clean and jerk<br/>
+        <input type="radio" name="q1" value="b. front squat" />b. front squat <br/>
+        <input type="radio" name="q1" value="c. back sqaut" />c. back sqaut <br/>
+        <input type="radio" name="q1" value="d. dead lift" />d. dead lift <br/>
         <br/><br/>
         <h1>Converting kilos to pounds you must?</h1>
-        <input type="radio" name="q2" value="a.  Multiply 2.2" /> a.  Multiply 2.2 <br/>
-        <input type="radio" name="q2" value="b. divide 2.2" /> b. divide 2.2 <br/>
-        <input type="radio" name="q2" value="c. add 2.2" /> c. add 2.2 <br/>
-        <input type="radio" name="q2" value="d. subtract 2.2" /> d. subtract 2.2 <br/>
+        <input type="radio" name="q2" value="a. Multiply 2.2" />a. Multiply 2.2 <br/>
+        <input type="radio" name="q2" value="b. divide 2.2" />b. divide 2.2 <br/>
+        <input type="radio" name="q2" value="c. add 2.2" />c. add 2.2 <br/>
+        <input type="radio" name="q2" value="d. subtract 2.2" />d. subtract 2.2 <br/>
         <br/><br/>
         <h1>What do you call hooking your thumb around the barbell and under your fingers?</h1>
-        <input type="radio" name="q3" value="lollipop grip" /> a.  lollipop grip <br/>
-        <input type="radio" name="q3" value="b. hug grip" /> b. hug grip <br/>
-        <input type="radio" name="q3" value="c. thumb grip" /> c. thumb grip <br/>
-        <input type="radio" name="q3" value="d. hook grip" /> d. hook grip <br/>
+        <input type="radio" name="q3" value="a. lollipop grip" />a. lollipop grip <br/>
+        <input type="radio" name="q3" value="b. hug grip" />b. hug grip <br/>
+        <input type="radio" name="q3" value="c. thumb grip" />c. thumb grip <br/>
+        <input type="radio" name="q3" value="d. hook grip" />d. hook grip <br/>
+        <br/><br/>
+        <h1>To lift the barbell from the ground to overhead in one continuous motion is a?</h1>
+        <input type="radio" name="q4" value="a. backsquat" />a. backsquat <br/>
+        <input type="radio" name="q4" value="b. snatch" />b. snatch <br/>
+        <input type="radio" name="q4" value="c. deadlift" />c. deadlift <br/>
+        <input type="radio" name="q4" value="d. overhead squat" />d. overhead squat <br/>
+        <br/><br/>
+        <h1>A popular weightlifiting club in california is named?</h1>
+        <input type="radio" name="q5" value="a. McDonalds barbell" />a. McDonalds barbell <br/>
+        <input type="radio" name="q5" value="b. b. cali barbell" />b. cali barbell <br/>
+        <input type="radio" name="q5" value="c. californina strength" />c. californina strength <br/>
+        <input type="radio" name="q5" value="d. Jolly Whopper" />d. Jolly Whopper<br/>
         <br/><br/>
         
-        <!--the button below is equivalent to your done_button-->
+        <!--the button below is your done_button-->
         <input type="button" id="btnGetValue" Value="Get Value" />
         <p id='q1'></p>
         <p id='q2'></p>
         <p id='q3'></p>
-        <div id='scoreArea'></div>
+        <p id='q4'></p>
+        <p id='q5'></p>
+        <h2><div id='scoreArea'></div></h2>
 
      <!-- <form name = 'quizForm' on submit = "return submitAnswers()"> 
        <h3 id = "qOne"></h3>
@@ -127,7 +141,7 @@
        <h1 id ="" value="Submit Answers">  -->
        <!-- </div> -->
        <!-- End of the game -->
-	  	<div id = end_container>
+	  	<div id = 'end_container'>
         <!-- Static Game Logo -->
         <!-- <h1 class = "btnbtn">Click button below when finished</h1>
   
@@ -135,8 +149,8 @@
         <br>
   
         <!-- <h1>Correct Answers: <span id = "correct_answers">0</span></h1> -->
-        <h1>Correct Answers: <span id = "correct_answers"></span></h1>
-        <h1>Incorrect Answers: <span id = "wrong_answers"></span></h1>
+        <!-- <h1>SCORE: <span id = "scores"></span></h1> -->
+        
        
       </div>
        

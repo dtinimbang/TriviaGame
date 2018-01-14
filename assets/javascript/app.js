@@ -57,9 +57,9 @@
 	$("#mid_game_container").hide();
 	$("#end_container").hide();
 
-    var correctCount=0;
-    var wrongCount=0;
-    var unansweredCount=0;
+    // var correctCount=0;
+    // var wrongCount=0;
+    // var unansweredCount=0;
 	
 
 	;
@@ -83,29 +83,65 @@
 
 
 
-    var answers = ['a. clean and jerk', 'a.  Multiply 2.2', 'd. hook grip'];
-var score = 0;
-var lose = 0;
+    var answers = ['a. clean and jerk', 'a. Multiply 2.2', 'd. hook grip','b. snatch','c. californina strength'];
+    var score = 0;
 
 
 $(document).ready(function(){
+
     
     //these variables are within the scope of the document ready
-    // i'm just making examples for 2 questions, you will have 5.
-    var q1, q2, q3;
+   
+    var q1, q2, q3, q4, q5;
     $('#btnGetValue').click(function() {
       //instruction sets below display for your debugging of selected answer  
       var q1 = $('input[name=q1]:checked').val(); 
-      console.log(q1);
       var q2 = $('input[name=q2]:checked').val(); 
       var q3 = $('input[name=q3]:checked').val(); 
+      var q4 = $('input[name=q4]:checked').val(); 
+      var q5 = $('input[name=q5]:checked').val(); 
       $('#q1').append('<br/>Selected Radio Button Value for q1 is : <b>' + q1 + '</b>');
       $('#q2').append('<br/>Selected Radio Button Value for q2 is : <b>' + q2 + '</b>');
-      $('#q3').append('<br/>Selected Radio Button Value for q2 is : <b>' + q3 + '</b>');
+      $('#q3').append('<br/>Selected Radio Button Value for q3 is : <b>' + q3 + '</b>');
+      $('#q4').append('<br/>Selected Radio Button Value for q4 is : <b>' + q4 + '</b>');
+      $('#q5').append('<br/>Selected Radio Button Value for q5 is : <b>' + q5 + '</b>');
       
       //implementing logic for correct answers and score keeping
-      if(answers[0] === q1) {
-          alert("working!");
+      if(answers[0] == q1) {
+          alert("q1 working!");
+        score++;
+        console.log(score);
+      }
+      else {
+        score--; 
+      }
+   
+    if(answers[1] == q2) {
+      alert("q2 working!");
+        score++;
+        console.log(score);
+      }
+      else {
+        score--; 
+      }
+      if(answers[2] == q3) {
+        alert("q3 working!");
+        score++;
+        console.log(score);
+      }
+      else {
+        score--; 
+      }
+      if(answers[3] == q4) {
+        alert("q4 working!");
+        score++;
+        console.log(score);
+      }
+      else {
+        score--; 
+      }
+      if(answers[4] == q5) {
+        alert("q5 working!");
         score++;
         console.log(score);
       }
@@ -113,22 +149,9 @@ $(document).ready(function(){
         score--; 
       }
     }); 
-    if(answers[1] === q2) {
-        score++;
-      }
-      else {
-        score--; 
-      }
-      if(answers[2] === q3) {
-        score++;
-      }
-      else {
-        score--; 
-      }
-
-    }); 
-
-    $('#correct_answers').html(score);
+   
+  }); 
+    
 
 
 
@@ -283,16 +306,16 @@ $(document).ready(function(){
 
 
 // User finishes before time is up and clicks done
-$("#done_button").on("click", function(){
+// $("#done_button").on("click", function(){
 
-    // trying to get done function to work
-    $("#mid_game_container").hide();
-    $("#start_container").hide();
-    console.log(correctCount);
-    return;
+//     // trying to get done function to work
+//     $("#mid_game_container").hide();
+//     $("#start_container").hide();
+//     console.log(score);
+//     return;
     
 
-    });
+//     });
 
 
 
@@ -380,13 +403,15 @@ $("#done_button").on("click", function(){
         
 
         // After answers are validated, display the score results
-		$('#correct_answers').text(score);
-		$('#wrong_answers').html(lose);
+		// $('#correct_answers').text(score);
+		// $('#wrong_answers').html(lose);
 		
 
 
 		// Show the completed Score Div
         $("#end_container").show();
+        $("#scoreArea").html(score);
+      
         
 
 
