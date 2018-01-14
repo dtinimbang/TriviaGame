@@ -152,7 +152,8 @@ $(document).ready(function(){
    
   }); 
     
-
+  $("#scoreArea").html(score);
+      
 
 
 // going to try and redo this with answers in a array.
@@ -410,8 +411,7 @@ $(document).ready(function(){
 
 		// Show the completed Score Div
         $("#end_container").show();
-        $("#scoreArea").html(score);
-      
+     
         
 
 
